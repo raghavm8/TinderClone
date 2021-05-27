@@ -3,11 +3,12 @@ import mongoose from 'mongoose';
 import Cards from './Models/CardsDBSchema.js';
 import cors from 'cors';
 import bodyParser from 'body-parser'; 
+import connectUrl from './dbURL.js'; 
 
 // app config
 const app = express();
 const PORT = process.env.PORT || 8001;
-const connectionUrl = 'mongodb+srv://TinderAdmin:Admin@tinder0000@cluster0.kawnq.mongodb.net/tinderDB?retryWrites=true&w=majority'
+const connectionUrl = connectUrl;
 
 // middlewares
 app.use(bodyParser.urlencoded(true));
@@ -81,6 +82,3 @@ app.delete('/tinder/card/delete/:id',(request,response) => {
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
 })
-
-
-// password = Admin@tinder0000
